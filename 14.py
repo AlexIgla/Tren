@@ -1,12 +1,19 @@
 from kivy.app import App
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.image import Image
 from kivy.uix.button import Button
-from kivy.uix.boxlayout import BoxLayout
 
 
-class MyApp2(App):
+class MyApp(App):
     def build(self):
-        # создание виджета
-        layout = BoxLayout()
+        layout = FloatLayout()
+
+        # Добавляем изображение
+        image = Image(source='E:/Tren_Alex/background_image.jpeg',
+                      allow_stretch=True,
+                      keep_ratio=False)
+        layout.add_widget(image)
+
         # Добавляем кнопку
         button = Button(text='Welcome to the club, buddy!',
                         size_hint=(.4, .1),
@@ -18,4 +25,4 @@ class MyApp2(App):
 
 
 if __name__ == '__main__':
-    MyApp2().run()
+    MyApp().run()

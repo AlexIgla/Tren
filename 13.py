@@ -1,25 +1,20 @@
-from kivy.lang import Builder
 from kivy.app import App
-
-KV = """
-MDScreen:
-
-    FloatLayout:
-
-        Image:
-            source: 'E:/Tren_Alex/background_image.jpeg'  # Укажите путь к вашему изображению здесь
-            allow_stretch: True
-            keep_ratio: 0
-
-        MDRaisedButton:
-            text: "Нажми меня"
-            pos_hint: {"center_x":.5, "center_y":.5}
-"""
+from kivy.uix.button import Button
+from kivy.graphics import Color, Rectangle
 
 
-class MainApp(App):
+class MyApp(App):
     def build(self):
-        return Builder.load_string(KV)
+        # Создаем кнопку
+        button = Button(text='Hello, Kivy!', size_hint=(None, None), size=(200, 50))
+
+        # Создаем прямоугольник для фона
+        with button.canvas.before:
+            Color(1, 1, 1, 1)  # Цвет фона (RGBA)
+            Rectangle(pos=button.pos, size=button.size)
+
+        return button
 
 
-MainApp().run()
+if __name__ == '__main__':
+    MyApp().run()

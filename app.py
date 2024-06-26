@@ -1,21 +1,22 @@
 from kivy.app import App
-from background import build
-from button import button
+from background import MyApp1
+from button import MyApp2
+from kivy.uix.floatlayout import FloatLayout
 
 
 class MyApp(App):
-    def __init__(self):
-        super().__init__()  # Вызов метода __init__ суперкласса
-        self.build()  # Создание ссылки на функцию из другого файла
-        self.button()  # Создание ссылки на функцию из другого файла
-
     def build(self):
-        return build(self)
+        layout = FloatLayout()
+        # Создаем экземпляр класса MyApp1 из файла background
+        my_app1_instance = MyApp1()
+        my_app1_instance.run()
 
-    def button(self):
-        return button(self)
+        # Создаем экземпляр класса MyApp2 из файла button
+        my_app2_instance = MyApp2()
+        my_app2_instance.run()
+
+        return layout
 
 
-my_object = MyApp()  # Создание экземпляра класса
-
-my_object.run()  # Запуск приложения
+if __name__ == '__main__':
+    MyApp().run()

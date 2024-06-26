@@ -1,21 +1,34 @@
 from kivy.app import App
-from kivy.uix.image import Image
 from kivy.uix.button import Button
+from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout
+from kivy.graphics import Line, Color
+from kivy.clock import Clock
+
+
+class MyButton(Button):
+    def __init__(self,**kw):
+        super().__init__(**kw)
+        self.text = 'test'
+        Clock.schedule_once(self.update_border,1)
+
+    def update_border(self,dt):
+        with self.canvas.before:
+            Color(rgba = (1,1,1,1))
+            Line(width = 2,rectangle = (self.x,self.y,self.width,self.height))
+
+class Main(BoxLayout):
+    def __init__(self,**kw):
+        super().__init__(**kw)
+        self.orientation = 'vertical'
+        self.add_widget(Widget())
+        self.add_widget(MyButton())
+        self.add_widget(Widget())
 
 
 class MyApp(App):
     def build(self):
-        layout = BoxLayout(orientation='vertical')
-        btn = Button(text='Welcome to the club, buddy!')  # Создаем кнопку
-        btn.border_width = 2
-        btn.border_color = (0, 0, 1, 1)  # Цвет бордера (RGBA)
-        layout.add_widget(btn)  # Добавляем кнопку поверх изображения
-        image = Image(source='E:/Tren_Alex/background_image.jpeg', allow_stretch=True, keep_ratio=False)  # Создаем изображение
-        layout.add_widget(image)  # Добавляем изображение в layout
+        return Main()
 
-        return layout
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     MyApp().run()
