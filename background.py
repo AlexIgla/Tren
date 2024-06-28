@@ -13,6 +13,7 @@ class MyApp1(App):
                       keep_ratio=False)
         # добавление изображения в layout
         layout.add_widget(image)
+
         return layout
 
 

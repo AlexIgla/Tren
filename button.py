@@ -4,7 +4,7 @@ from kivy.uix.boxlayout import BoxLayout
 
 
 class MyApp2(App):
-    def build(self):
+    def buildd(self):
         # создание виджета
         layout = BoxLayout()
         # Добавляем кнопку

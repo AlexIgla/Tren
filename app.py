@@ -2,20 +2,16 @@ from kivy.app import App
 from background import MyApp1
 from button import MyApp2
 from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.screenmanager import ScreenManager, Screen
 
 
-class MyApp(App):
+class MyApp(MyApp1, MyApp2):
     def build(self):
-        layout = FloatLayout()
-        # Создаем экземпляр класса MyApp1 из файла background
-        my_app1_instance = MyApp1()
-        my_app1_instance.run()
+        super().build()
 
-        # Создаем экземпляр класса MyApp2 из файла button
-        my_app2_instance = MyApp2()
-        my_app2_instance.run()
-
-        return layout
+    def build1(self):
+        super().build()
 
 
 if __name__ == '__main__':
