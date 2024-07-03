@@ -5,13 +5,8 @@ from kivy.uix.image import Image
 from kivy.uix.floatlayout import FloatLayout
 
 
-class MyApp1(Background1, Button1):
+class MyApp1(Button1, Background1, FloatLayout, App):
     pass
-
-
-#class MyApp2(Background1, Button1, FloatLayout, App):
-#def build(self):
-#return MyApp2()
 
 
 if __name__ == '__main__':
