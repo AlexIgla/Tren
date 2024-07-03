@@ -3,7 +3,10 @@ from kivy.uix.image import Image
 from kivy.uix.boxlayout import BoxLayout
 
 
-class MyApp1(App):
+class Background1(App):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
     def build(self):
         # создание виджета с вертикальной ориентацией
         layout = BoxLayout(orientation='vertical')
@@ -18,4 +21,4 @@ class MyApp1(App):
 
 
 if __name__ == '__main__':
-    MyApp1().run()
+    Background1().run()
