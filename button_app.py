@@ -4,10 +4,6 @@ from kivy.uix.button import Button
 from kivy.uix.image import Image
 
 
-class RootWidget(FloatLayout):
-    pass
-
-
 class MainApp(App):
     def build(self):
         layout = FloatLayout()
