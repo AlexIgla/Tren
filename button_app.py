@@ -6,21 +6,19 @@ from kivy.uix.image import Image
 
 class MainApp(App):
     def build(self):
+        # Добавляем виджет
         layout = FloatLayout()
+        # Добавляем изображение
         image = Image(source='E:/Tren_Alex/background_image.jpeg',
                       allow_stretch=True,
                       keep_ratio=False)
         layout.add_widget(image)
-
         # Добавляем кнопку
         button = Button(text='Welcome to the club, buddy!',
                         size_hint=(.5, .1),
                         pos_hint={'center_x': .5, 'center_y': .5})
-        button.background_color = 'blue'  # Устанавливаем синий цвет фона кнопки
+        # Добавляем цвет кнопке
+        button.background_color = 'blue'
         layout.add_widget(button)
 
         return layout
-
-
-if __name__ == '__main__':
-    MainApp().run()
